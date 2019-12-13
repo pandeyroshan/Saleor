@@ -257,7 +257,9 @@ INSTALLED_APPS = [
     "saleor.page",
     "saleor.payment",
     "saleor.webhook",
+    "saleor.University",
     # External apps
+    "crispy_forms",
     "versatileimagefield",
     "django_babel",
     "bootstrap4",

@@ -1,0 +1,14 @@
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+    </tr>
+    {%for data in university_data%}
+        <tr>
+        <td><a href="{{data.collegeURL}}">{{data.collegeName}}</a></td>
+        <td><a href="{{data.collegeLocationURL}}">{{data.collegeLocation}}</a></td>
+        <td><a></a>edit</td>
+        <td><a href=""></a>delete</td>
+        </tr>
+    {%endfor%}
+  </table>

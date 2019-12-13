@@ -15,6 +15,7 @@ from .shipping.urls import urlpatterns as shipping_urls
 from .sites.urls import urlpatterns as site_urls
 from .staff.urls import urlpatterns as staff_urls
 from .taxes.urls import urlpatterns as taxes_urls
+from .University.urls import urlpatterns as university_urls
 
 urlpatterns = [
     url(r"^$", core_views.index, name="index"),
@@ -33,4 +34,5 @@ urlpatterns = [
     url(r"^style-guide/", core_views.styleguide, name="styleguide"),
     url(r"^search/", include(search_urls)),
     url(r"^taxes/", include(taxes_urls)),
+    url(r"^university/", include(university_urls)),
 ]

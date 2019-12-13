@@ -175,10 +175,17 @@
                   </li>
 
                   <li class="{% block menu_univerity_class %}{% endblock %}">
-                    <a href="{% url 'dashboard:staff-list' %}">
-                      {% trans "University Management" context "Dashboard staff members list" %}
+                    <a href="{% url 'dashboard:university-list' %}">
+                      {% trans "University management" context "Dashboard staff members list" %}
                     </a>
                   </li>
+
+                  <li class="{% block menu_repr_class %}{% endblock %}">
+                    <a href="{% url 'dashboard:staff-list' %}">
+                      {% trans "University Heads" context "Dashboard staff members list" %}
+                    </a>
+                  </li>
+
                 </ul>
               </li>
             {% endif %}
