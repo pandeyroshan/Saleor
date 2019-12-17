@@ -96,6 +96,22 @@
                 {% trans "Home" context "Dashboard homepage" %}
               </a>
             </li>
+
+
+            <li class="side-nav-section" id="first">
+              <p>
+                {% trans "Catalogue" context "Dashboard catalogue" %}
+              </p>
+              <ul>
+                  <li class="{% block menu_consignment_class %}{% endblock %}">
+                    <a href="{% url 'dashboard:my_consignment' %}">
+                      {% trans "Consignment" context "Dashboard products list" %}
+                    </a>
+                  </li>
+              </ul>
+            </li>
+
+
             {% if perms.product.manage_products %}
             <li class="side-nav-section" id="first">
               <p>
@@ -177,12 +193,6 @@
                   <li class="{% block menu_univerity_class %}{% endblock %}">
                     <a href="{% url 'dashboard:university-list' %}">
                       {% trans "University management" context "Dashboard staff members list" %}
-                    </a>
-                  </li>
-
-                  <li class="{% block menu_repr_class %}{% endblock %}">
-                    <a href="{% url 'dashboard:staff-list' %}">
-                      {% trans "University Heads" context "Dashboard staff members list" %}
                     </a>
                   </li>
 

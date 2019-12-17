@@ -1,0 +1,31 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load materializecss %}
+{% load static %}
+{% load utils %}
+{% load crispy_forms_tags %}
+{% block title %}
+  {% trans "Staff" context "Dashboard staff members list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-customers{% endblock %}
+
+{% block menu_staff_class %}active{% endblock %}
+
+
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs">
+    <li class="visible-s">
+      {% trans "Staff" context "Dashboard staff members list" %}
+    </li>
+  </ul>
+{% endblock %}
+
+{%block content%}
+    <form method="POST">
+        {%csrf_token%}
+        {{form|crispy}}
+        <button type="submit">SUBMIT</button>
+    </form>
+{%endblock%}

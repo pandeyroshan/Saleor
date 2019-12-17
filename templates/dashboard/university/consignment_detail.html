@@ -1,0 +1,35 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load materializecss %}
+{% load static %}
+{% load utils %}
+
+{% block title %}
+  {% trans "Staff" context "Dashboard staff members list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-customers{% endblock %}
+
+{% block menu_staff_class %}active{% endblock %}
+
+
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs">
+    <li class="visible-s">
+      {% trans "Staff" context "Dashboard staff members list" %}
+    </li>
+  </ul>
+{% endblock %}
+
+{%block content%}
+
+{%if flag%}
+
+<h3 class="card-title">Consignment ID: {{data.consignmentID}}</h3>
+
+
+{%endif%}
+
+
+{%endblock%}

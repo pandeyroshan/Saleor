@@ -1,7 +1,25 @@
 from django import forms
-from ...University.models import University,CollegeRepr
+import inspect
+from ...University.models import University, consignment,representativePush
+from ...account.models import User
 
 class CreateUniversity(forms.ModelForm):
     class Meta():
         model = University
+        fields = '__all__'
+    def __init__(self, *args, **kwargs):
+        super(CreateUniversity, self).__init__(*args, **kwargs)
+        self.fields['user'].queryset = User.objects.filter(is_staff=True)
+
+
+class consignmentForm(forms.ModelForm):
+    class Meta():
+        model = consignment
+        fields = '__all__'
+        exclude = ('user',)
+
+
+class representativePushForm(forms.ModelForm):
+    class Meta():
+        model = representativePush
         fields = '__all__'

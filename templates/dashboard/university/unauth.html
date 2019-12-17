@@ -1,0 +1,31 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load materializecss %}
+{% load static %}
+{% load utils %}
+
+{% block title %}
+  {% trans "Staff" context "Dashboard staff members list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-customers{% endblock %}
+
+{% block menu_staff_class %}active{% endblock %}
+
+
+{% block header_extra %}
+  <div class="btn-fab-fixed">
+    <a class="btn-fab-default waves-effect waves-light"
+      title="{% trans "Add University" context "Staff members list add button text" %}"
+      href="{% url 'dashboard:add-university' %}">
+      <svg data-src="{% static "dashboard/images/add.svg" %}" />
+    </a>
+  </div>
+{% endblock %}
+
+
+{%block content%}
+
+<h1>Permission Denied</h1>
+
+{%endblock%}

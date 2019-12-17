@@ -42,7 +42,7 @@ def page_add(request):
     page = Page()
     return _page_edit(request, page)
 
-
+@staff_member_required
 def _page_edit(request, page):
     form = PageForm(request.POST or None, instance=page)
     if form.is_valid():
