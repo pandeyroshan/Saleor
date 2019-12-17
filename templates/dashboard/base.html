@@ -196,6 +196,14 @@
                     </a>
                   </li>
 
+
+                  <li class="{% block menu_pap_class %}{% endblock %}">
+                    <a href="{% url 'dashboard:payment_approval
+                    ' %}">
+                      {% trans "Payment Approval" context "Dashboard staff members list" %}
+                    </a>
+                  </li>
+
                 </ul>
               </li>
             {% endif %}

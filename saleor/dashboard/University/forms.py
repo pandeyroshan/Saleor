@@ -16,10 +16,16 @@ class consignmentForm(forms.ModelForm):
     class Meta():
         model = consignment
         fields = '__all__'
-        exclude = ('user',)
+        exclude = ('user','totalPaid')
 
 
 class representativePushForm(forms.ModelForm):
     class Meta():
         model = representativePush
         fields = '__all__'
+
+
+class addMoneyForm(forms.ModelForm):
+    class Meta():
+        model = representativePush
+        fields = ('pushMoney',)

@@ -30,7 +30,13 @@ class consignment(models.Model):
     state = [(Shipped, 'Shipped'),(On_Route, 'On Route'),(Delivered, 'Delivered')]
     status = models.CharField(max_length=20,choices=state,default=Shipped)
     totalCommission = models.IntegerField()
+    totalPaid = models.IntegerField(default=0)
 
 class representativePush(models.Model):
     consignment = models.ForeignKey(consignment,on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(default=timezone.now)
     pushMoney = models.IntegerField()
+    Initiated = 'Initiated'
+    Approved = 'Approved'
+    state = [(Initiated, 'Initiated'),(Approved,'Approved'),]
+    status = models.CharField(max_length=20,choices=state,default=Initiated)

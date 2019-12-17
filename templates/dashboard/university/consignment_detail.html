@@ -12,6 +12,16 @@
 
 {% block menu_staff_class %}active{% endblock %}
 
+{% block header_extra %}
+  <div class="btn-fab-fixed">
+    <a class="btn-fab-default waves-effect waves-light"
+      title="{% trans "Add Return Money" context "Staff members list add button text" %}"
+      href="{% url 'dashboard:add-money' data.id %}">
+      <svg data-src="{% static "dashboard/images/add.svg" %}" />
+    </a>
+  </div>
+{% endblock %}
+
 
 
 {% block breadcrumbs %}
@@ -27,8 +37,49 @@
 {%if flag%}
 
 <h3 class="card-title">Consignment ID: {{data.consignmentID}}</h3>
+<br>
+<h4>College Name: {{data.university.collegeName}} {{data.id}}</h4>
+<h4>Consignment Timestamp: {{data.date}}</h4>
+<h4>Total Pair of Shoes: {{data.totalPair}}</h4>
+<h4>Total Price: {{data.price}}</h4>
+<h4>Consignment Status: {{data.status}}</h4>
+<h4>Profit: <span style="color: green">{{data.totalCommission}}</span></h4>
+<hr><br>
+
+<h3>My Input</h3>
+  
 
 
+<div class="row">
+  <div class="col s12 l9">
+      <div class="card">
+        <div class="data-table-container">
+          <table class="bordered highlight responsive data-table">
+            <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Money Paid</th>
+                  <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for data in money_data%}
+                        <tr>
+                          <td>{{data.timestamp|date:"M d, Y"}}</td>
+                          <td>{{data.pushMoney}}</td>
+                          <td>{{data.status}}</td>
+                        </tr>
+                {%endfor%}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+{%else%}
+
+<h2 style="color: red">Permission Denied</h2>
 {%endif%}
 
 

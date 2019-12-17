@@ -57,6 +57,7 @@
                   <th>Price</th>
                   <th>Status</th>
                   <th>Commission</th>
+                  <th>Total Paid</th>
                   <th>Edit</th>
                   <th>Delete</th>
               </tr>
@@ -70,6 +71,7 @@
                           <td>{{data.price}}</td>
                           <td>{{data.status}}</td>
                           <td>{{data.totalCommission}}</td>
+                          <td>{{data.totalPaid}}</td>
                           <td><a href="/dashboard/university/edit-consignment/{{data.id}}/">&#9997;</a></td>
                           <td><a href="/dashboard/university/delete-consignment/{{data.id}}/{{college_data.id}}">&#10005;</a></td>
                         </tr>
