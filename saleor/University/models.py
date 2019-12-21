@@ -47,3 +47,11 @@ class representativePush(models.Model):
     Approved = 'Approved'
     state = [(Initiated, 'Initiated'),(Approved,'Approved'),]
     status = models.CharField(max_length=20,choices=state,default=Initiated)
+
+
+class localAddress(models.Model):
+    fname = models.CharField(max_length=100,blank=False)
+    lname = models.CharField(max_length=100,blank=True)
+    address = models.CharField(max_length=500,blank=False)
+    phoneNumber = models.CharField(max_length=15)
+    university = models.ForeignKey(University,on_delete=models.CASCADE)

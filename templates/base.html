@@ -44,7 +44,6 @@
   <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -119,10 +118,9 @@
             <div class="menu-icon-mobile d-md-none navbar__brand__menu-toggle closed open">
               <svg data-src="{% static "images/mobile-menu.svg" %}" width="28px" height="20px"/>
             </div>
-            <h1 style="font-family: 'Cinzel', serif;">FlexShooz</h1>
-            <!--<a href="{% url 'home' %}">
-              <img src="{% static "images/FlexShooz.jpg" %}"/>
-            </a>-->
+            <a href="{% url 'home' %}">
+              <svg data-src="{% static "images/FlexShooz.svg" %}"/>
+            </a>
           </div>
           <div class="col-2 col-md-5 navbar__search static">
             {% if SEARCH_IS_ENABLED %}
