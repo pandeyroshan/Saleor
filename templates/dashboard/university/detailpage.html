@@ -15,8 +15,8 @@
 {% block header_extra %}
   <div class="btn-fab-fixed">
     <a class="btn-fab-default waves-effect waves-light"
-      title="{% trans "Add Consignment" context "Staff members list add button text" %}"
-      href="{% url 'dashboard:add-consignment' college_data.id college_data.user.id%}">
+      title="{% trans "Add Representatives" context "Staff members list add button text" %}"
+      href="{% url 'dashboard:add-repr' college_data.id %}">
       <svg data-src="{% static "dashboard/images/add.svg" %}" />
     </a>
   </div>
@@ -36,11 +36,9 @@
 
 <h3 class="card-title"><a href="{{college_data.collegeURL}}" target="_blank">{{college_data.collegeName}}</a> : {{college_data.collegeLocation}} <a href="{{college_data.collegeLocationURL}}" target="_blank">&#8599;</a></h3>
 <br>
-<h4>Representative: {{college_data.user.first_name}} {{college_data.user.last_name}} | {{college_data.userPhone}} | {{college_data.userEmail}}</h4>
-<br>
 <hr>
 <br>
-<h3 class="card-title">Consignment Details</h3>
+<h3 class="card-title">Representaives Detail</h3>
 
 
 
@@ -51,29 +49,19 @@
           <table class="bordered highlight responsive data-table">
             <thead>
               <tr>
-                  <th>ID</th>
-                  <th>Date</th>
-                  <th>Pairs</th>
-                  <th>Price</th>
-                  <th>Status</th>
-                  <th>Commission</th>
-                  <th>Total Paid</th>
+                  <th>User</th>
+                  <th>Contact No</th>
                   <th>Edit</th>
                   <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-                {%for data in consignment_data%}
+                {%for data in repr_data%}
                         <tr>
-                          <td>{{data.consignmentID}}</td>
-                          <td>{{data.date|date:"M d, Y"}}</td>
-                          <td>{{data.totalPair}}</td>
-                          <td>{{data.price}}</td>
-                          <td>{{data.status}}</td>
-                          <td>{{data.totalCommission}}</td>
-                          <td>{{data.totalPaid}}</td>
-                          <td><a href="/dashboard/university/edit-consignment/{{data.id}}/">&#9997;</a></td>
-                          <td><a href="/dashboard/university/delete-consignment/{{data.id}}/{{college_data.id}}">&#10005;</a></td>
+                          <td><a href="/dashboard/university/open-repr/{{data.id}}/">{{data.user}}</a></td>
+                          <td>{{data.contactNo}}</td>
+                          <td><a href="/dashboard/university/edit-repr/{{data.id}}/{{college_data.id}}">&#9997;</a></td>
+                          <td><a href="/dashboard/university/del-repr/{{data.id}}/{{college_data.id}}">&#10005;</a></td>
                         </tr>
                 {%endfor%}
             </tbody>

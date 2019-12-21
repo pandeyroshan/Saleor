@@ -35,7 +35,6 @@
                 <tr>
                     <th>College Name</th>
                     <th>Location</th>
-                    <th>Representative</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -43,9 +42,8 @@
               <tbody>
                   {%for data in university_data%}
                           <tr>
-                            <td><a href="/dashboard/university/detail-page/{{data.id}}/{{data.user.id}}">{{data.collegeName}}</a></td>
+                            <td><a href="/dashboard/university/detail-page/{{data.id}}/">{{data.collegeName}}</a></td>
                             <td><a href="{{data.collegeLocationURL}}">{{data.collegeLocation}}</a></td>
-                            <td>{{data.user.first_name}} {{data.user.last_name}}</td>
                             <td><a href="/dashboard/university/edit-university/{{data.id}}">&#9997;</a></td>
                             <td><a href="/dashboard/university/delete-university/{{data.id}}">&#10005;</a></td>
                           </tr>

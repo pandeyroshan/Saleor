@@ -9,27 +9,34 @@ class University(models.Model):
     collegeURL = models.URLField(max_length=1000)
     collegeLocation = models.CharField(max_length=500)
     collegeLocationURL = models.URLField(max_length=1000)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
-    userPhone = models.CharField(max_length=15)
-    userEmail = models.CharField(max_length=200)
     
     def __str__(self):
         return self.collegeName
 
+class representative(models.Model):
+    College = models.ForeignKey(University,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    contactNo = models.CharField("Contact No", max_length=15)
+    
+    def __str__(self):
+        return self.user.email
+
 
 class consignment(models.Model):
     university = models.ForeignKey(University,on_delete=models.CASCADE)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    representative = models.ForeignKey(representative, on_delete=models.CASCADE)
     consignmentID = models.CharField(max_length=100,blank=False,unique=True)
     date = models.DateTimeField(auto_now_add=True)
     totalPair  =models.IntegerField()
     price = models.IntegerField()
+    Processing = 'Processing'
     Shipped = 'Shipped'
     On_Route = 'On Route'
     Delivered = 'Delivered'
-    state = [(Shipped, 'Shipped'),(On_Route, 'On Route'),(Delivered, 'Delivered')]
+    state = [(Shipped, 'Shipped'),(On_Route, 'On Route'),(Delivered, 'Delivered'),(Processing, 'Processing')]
     status = models.CharField(max_length=20,choices=state,default=Shipped)
-    totalCommission = models.IntegerField()
+    totalCommission = models.IntegerField(blank=True)
+    commissionPercentage = models.PositiveIntegerField("Commission Percentage")
     totalPaid = models.IntegerField(default=0)
 
 class representativePush(models.Model):

@@ -198,8 +198,7 @@
 
 
                   <li class="{% block menu_pap_class %}{% endblock %}">
-                    <a href="{% url 'dashboard:payment_approval
-                    ' %}">
+                    <a href="{% url 'dashboard:payment_approval' %}">
                       {% trans "Payment Approval" context "Dashboard staff members list" %}
                     </a>
                   </li>
@@ -308,4 +307,13 @@
 
     {% block custom_js %}{% endblock %}
   </body>
+<style>
+  .dot{
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
 </html>
